@@ -1,6 +1,8 @@
 package com.game.engine;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Board {
     private final int size;
@@ -46,8 +48,27 @@ public class Board {
         return piecesCount == size * size;
     }
 
-    private boolean isValidCoordinate(int x, int y) {
+    public boolean isValidCoordinate(int x, int y) {
         return x >= 0 && x < size && y >= 0 && y < size;
+    }
+
+    public void undoMove(int x, int y) {
+        if (grid[x][y] != CellState.EMPTY) {
+            grid[x][y] = CellState.EMPTY;
+            piecesCount--;
+        }
+    }
+
+    public List<Move> getAvailableMoves(CellState currentColor) {
+        List<Move> moves = new ArrayList<>();
+        for (int x = 0; x < size; x++) {
+            for (int y = 0; y < size; y++) {
+                if (grid[x][y] == CellState.EMPTY) {
+                    moves.add(new Move(x, y, currentColor));
+                }
+            }
+        }
+        return moves;
     }
 
     @Override
