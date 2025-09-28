@@ -74,15 +74,21 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
+        sb.append("  ");
+        for (int x = 0; x < size; x++) {
+            sb.append(x).append(" ");
+        }
+        sb.append("\n");
+
         for (int y = 0; y < size; y++) {
+            sb.append(y).append(" ");
+
             for (int x = 0; x < size; x++) {
-                char symbol = switch (grid[x][y]) {
-                    case WHITE -> 'W';
-                    case BLACK -> 'B';
-                    default -> '.';
-                };
-                sb.append(symbol).append(" ");
+                sb.append(grid[x][y].getDisplayValue()).append(" ");
             }
+
+            sb.setLength(sb.length() - 1);
             sb.append("\n");
         }
         return sb.toString();

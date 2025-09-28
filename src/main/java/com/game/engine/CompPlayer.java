@@ -53,11 +53,7 @@ public class CompPlayer extends Player {
             board.undoMove(move.getX(), move.getY());
 
             if (wins) {
-                if (targetColor == this.getColor()) {
-                    return move;
-                } else {
-                    return new Move(move.getX(), move.getY(), this.getColor());
-                }
+                return new Move(move.getX(), move.getY(), this.getColor());
             }
         }
         return null;

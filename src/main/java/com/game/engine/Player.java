@@ -17,5 +17,5 @@ public abstract class Player {
         return color;
     }
 
-    public abstract Move getMove(Board board) throws Exception;
+    public abstract Move getMove(Board board);
 }
