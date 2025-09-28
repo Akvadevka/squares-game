@@ -73,7 +73,7 @@ public class ConsoleApp {
             switch (command) {
                 case "GAME":
 
-                    if (parts.length != 3) return "Incorrect command";
+                    if (parts.length != 3 || engine.isGameActive()) return "Incorrect command";
 
                     int size = Integer.parseInt(parts[0].substring(4).trim());
                     Player p1 = parsePlayer(parts[1].trim());
@@ -84,7 +84,7 @@ public class ConsoleApp {
                     return "New game started!";
 
                 case "MOVE":
-                    if (parts.length != 2) return "Incorrect command";
+                    if (parts.length != 2 || !engine.isGameActive()) return "Incorrect command";
 
                     int x = Integer.parseInt(parts[0].substring(4).trim());
                     int y = Integer.parseInt(parts[1].trim());
