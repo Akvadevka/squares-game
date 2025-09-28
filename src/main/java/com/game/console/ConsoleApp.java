@@ -1,6 +1,8 @@
 package com.game.console;
 
 import com.game.engine.*;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ConsoleApp {
@@ -16,6 +18,7 @@ public class ConsoleApp {
             if (line.isEmpty()) continue;
 
             String response = processCommand(line);
+
             if (!response.isEmpty()) {
                 System.out.println(response);
             }
@@ -26,10 +29,13 @@ public class ConsoleApp {
                     executeComputerTurn(currentPlayer);
                     if (!engine.isGameActive()) {
                         break;
-                    } } else {
+                    }
+                } else {
                     break;
                 }
+
             }
+
         }
     }
 
@@ -88,12 +94,9 @@ public class ConsoleApp {
                     }
 
                     String result = engine.executeMove(x, y);
-                    if (result == null) {
-                        return "";
-                    }
-                    System.out.println(engine.printBoard());
 
-                    return result;
+                    System.out.println(engine.printBoard());
+                    return Objects.requireNonNullElse(result, "");
 
                 case "BOARD":
                     return engine.printBoard();
