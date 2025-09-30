@@ -71,6 +71,18 @@ public class Board {
         return moves;
     }
 
+    public List<int[]> getOccupiedCells(CellState color) {
+        List<int[]> cells = new ArrayList<>();
+        for (int x = 0; x < size; x++) {
+            for (int y = 0; y < size; y++) {
+                if (grid[x][y] == color) {
+                    cells.add(new int[]{x, y});
+                }
+            }
+        }
+        return cells;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

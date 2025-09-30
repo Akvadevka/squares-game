@@ -130,15 +130,7 @@ public class ConsoleApp {
         PlayerType type = PlayerType.valueOf(details[0].toUpperCase());
         String colorSymbol = details[1].toUpperCase();
 
-        CellState color;
-
-        if (colorSymbol.equals("B")) {
-            color = CellState.BLACK;
-        } else if (colorSymbol.equals("W")) {
-            color = CellState.WHITE;
-        } else {
-            throw new IllegalArgumentException("Incorrect command");
-        }
+        CellState color = CellState.fromSymbol(colorSymbol);
 
         if (type == PlayerType.USER) {
             return new UserPlayer(color);
