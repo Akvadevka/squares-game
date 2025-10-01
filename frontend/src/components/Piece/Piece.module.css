@@ -13,8 +13,10 @@
 }
 
 .small {
-    width: 35px;
-    height: 35px;
+    width: 70%;
+    height: 70%;
+    min-width: 18px;
+    aspect-ratio: 1;
 }
 
 .medium {

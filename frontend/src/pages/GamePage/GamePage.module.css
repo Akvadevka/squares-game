@@ -63,7 +63,7 @@
 
 .cell {
     background: white;
-    border-radius: 24px;
+    border-radius: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,4 +87,37 @@
     .board {
         max-width: 600px;
     }
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popupContent {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.startButtonClass {
+    width: 100%;
+    border-radius: 14px;
+    background-color: rgba(31, 194, 77, 1);
+    border: none;
+    color: white;
+    padding: 10px 20px;
 }

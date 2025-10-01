@@ -1,17 +1,16 @@
-// frontend/src/pages/GameSetup/GameSetup.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // <--- Импортируем useNavigate
+import { useNavigate } from 'react-router-dom';
 import styles from './GameSetup.module.css';
 import Piece from '../../components/Piece/Piece';
 
 const MIN_SIZE = 3;
 
 function GameSetup() {
+    localStorage.clear();
     const [size, setSize] = useState("");
     const [userColor, setUserColor] = useState('b');
     const [firstPlayer, setFirstPlayer] = useState('user');
     const [error, setError] = useState(false);
-
     const navigate = useNavigate();
 
     const getPlayerButtonClass = (playerType) => {
