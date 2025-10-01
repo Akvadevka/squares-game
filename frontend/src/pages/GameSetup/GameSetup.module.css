@@ -1,0 +1,86 @@
+
+.wrapper {
+    width: 400px;
+    background-color: white;
+    margin: auto;
+    padding: 25px 15px 15px 15px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.settings_title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings_size {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settings_color, .settings_first_run, .settings_first_run {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.color_options {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+}
+
+.color_option {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.color_active {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 0 2px #4CAF50;
+}
+
+.player_options_container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 16px;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.player_button {
+    padding: 8px 16px;
+    width: 50%;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.input_field {
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+    border-radius: 14px;
+    background-color: rgba(245, 245, 245, 1);
+    border: none;
+}
+.player_button_active {
+    border-radius: 12px;
+    background-color: white;
+}
+
+.startButtonClass {
+    width: 100%;
+    border-radius: 14px;
+    background-color: rgba(31, 194, 77, 1);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+}

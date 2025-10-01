@@ -1,0 +1,23 @@
+.piece {
+    border-radius: 100px;
+}
+
+.b {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.w {
+    background-color: white;
+    border: 7px solid black;
+}
+
+.small {
+    width: 35px;
+    height: 35px;
+}
+
+.medium {
+    width: 42px;
+    height: 42px;
+}
