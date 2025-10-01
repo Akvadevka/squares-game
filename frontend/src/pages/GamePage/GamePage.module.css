@@ -1,0 +1,90 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+}
+
+.playersPanel {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-radius: 24px;
+    padding: 5px;
+}
+
+.playerCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background: white;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.active {
+    border-color: #00c853;
+}
+
+.disabled {
+    opacity: 0.6;
+}
+
+
+.greenDot {
+    width: 16px;
+    height: 16px;
+    background: rgba(31, 194, 77, 1);
+    border-radius: 50%;
+}
+
+.board {
+    display: grid;
+    gap: 10px;
+    width: 70vmin;
+    aspect-ratio: 1;
+
+}
+
+.cell {
+    background: white;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 69px 19px 0 rgba(0, 0, 0, 0.00), 0 44px 18px 0 rgba(0, 0, 0, 0.01),
+    0 25px 15px 0 rgba(0, 0, 0, 0.05), 0 11px 11px 0 rgba(0, 0, 0, 0.09),
+    0 3px 6px 0 rgba(0, 0, 0, 0.10);
+}
+
+.cell:hover {
+    box-shadow: 0 83px 23px 0 rgba(0, 0, 0, 0.00),
+    0 53px 21px 0 rgba(0, 0, 0, 0.03), 0 30px 18px 0 rgba(0, 0, 0, 0.10),
+    0 13px 13px 0 rgba(0, 0, 0, 0.17), 0 3px 7px 0 rgba(0, 0, 0, 0.20);
+}
+
+@media (max-width: 1500px) {
+    .playersPanel {
+        transform: scale(0.75);
+        transform-origin: center center;
+    }
+
+    .board {
+        max-width: 600px;
+    }
+}

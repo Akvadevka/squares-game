@@ -6,11 +6,11 @@ import Piece from '../../components/Piece/Piece';
 
 const MIN_SIZE = 3;
 
-// Пропсы onStartGame больше не нужен
 function GameSetup() {
-    const [size, setSize] = useState(3);
+    const [size, setSize] = useState("");
     const [userColor, setUserColor] = useState('b');
     const [firstPlayer, setFirstPlayer] = useState('user');
+    const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 
@@ -22,18 +22,19 @@ function GameSetup() {
         }
         return className;
     };
+
     const handleStart = () => {
-        if (size >= MIN_SIZE) {
-            // Используем navigate для перехода и передачи объекта state
+        if (Number(size) >= MIN_SIZE) {
+            setError(false);
             navigate('/game', {
                 state: {
-                    size,
+                    size: Number(size),
                     userColor,
                     firstPlayer
                 }
             });
         } else {
-            alert(`Размер поля должен быть минимум ${MIN_SIZE}`);
+            setError(true);
         }
     };
 
@@ -45,16 +46,21 @@ function GameSetup() {
                 <h4 className="medium gr-clr">Перед началом игры выберите параметры</h4>
             </div>
             <div className={styles.settings_size}>
-                <h4 className="medium gr-clr">Размер поля</h4>
+                <h4 className={`medium gr-clr ${error ? styles.red_clr : ''}`}>Размер поля</h4>
                 <input
                     id="sizeInput"
                     type="number"
                     min={MIN_SIZE}
                     value={size}
-                    onChange={(e) => setSize(e.target.value)}
-                    className={styles.input_field}
+                    onChange={(e) => {
+                        setSize(e.target.value);
+                        setError(false);
+                    }}
+                    placeholder={"Введите размер поля"}
+                    className={`${styles.input_field} ${error ? styles.input_error : ''}`}
                 />
-                <h4 className="medium gr-clr">Минимум {MIN_SIZE}</h4>
+                <h4 className={`medium gr-clr ${error ? styles.red_clr : ''}`}>Минимум {MIN_SIZE}</h4>
+
             </div>
             <div className={styles.settings_color}>
                 <h3 className="medium">Выберите свой цвет</h3>
@@ -93,7 +99,7 @@ function GameSetup() {
                     </button>
                 </div>
                 <button
-                    className={styles.startButtonClass}
+                    className={`${styles.startButtonClass} ${!size ? styles.disabled : ''}`}
                     onClick={handleStart}
                 >
                     <h2 className="medium">Начать игру</h2>
